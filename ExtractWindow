@@ -1,0 +1,1 @@
+WHERE ISNULL(MODDTTM,ISNULL(ADDDTTM,V{ExtractFromDateTime})) >= V{ExtractFromDateTime} AND ISNULL(MODDTTM,ISNULL(ADDDTTM,V{ExtractToDateTime})) <= V{ExtractToDateTime}
