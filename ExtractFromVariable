@@ -1,0 +1,9 @@
+SELECT TOP 1 '\''+[WorkflowLog.Extract From UTC Date Time ISO 8601]+'\''
+FROM [ALL]
+WHERE [WorkflowLog.Status] = "Successful"
+ORDER BY [WorkflowLog.Sequence Number] DESC
+
+
+
+WHERE [WorkflowLog.Status] = 'Successful'
+
