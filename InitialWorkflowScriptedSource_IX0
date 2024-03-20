@@ -1,0 +1,4 @@
+SELECT TOP 1
+	[Level(Time.Day).Year]
+FROM
+	[Level(Time.Day)]
