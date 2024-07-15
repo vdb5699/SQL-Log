@@ -1,0 +1,14 @@
+-- Getting Max Load
+{
+    "query": "SELECT MAX([Comments.LOAD]) FROM [ALL]"
+}
+-- Getting Max Batch
+{
+    "query": "SELECT MAX([Comments.BATCH ID]) FROM [ALL] WHERE [Comments.LOAD] = VARIABLE"
+}
+
+-- Getting Records with Max Load and Batch values
+{
+    "query": "SELECT [Comments.COMMENTS_ID],[Comments.COMMENTS_KEY],[Comments.COMMENTS],[Comments.COMMENTS_SEARCH], [Comments.ADDDTTM], [Comments.MODDTTM], [Comments.TYPE], [Comments.BATCH ID], [Comments.LOAD] FROM [ALL] WHERE [Comments.BATCH ID] = VARIABLE AND [Comments.LOAD] = VARIABLE"
+}
+

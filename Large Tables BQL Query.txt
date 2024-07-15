@@ -1,0 +1,50 @@
+/* AccountActivity */
+
+-- Getting Max Load (AccountActivity)
+{
+    "query": "SELECT MAX([AccountActivity.LOAD]) FROM [ALL]"
+}
+-- Getting Max Batch (AccountActivity)
+{
+    "query": "SELECT MAX([AccountActivity.BATCH ID]) FROM [ALL] WHERE [AccountActivity.LOAD] = VARIABLE"
+}
+
+-- Getting Records with Max Load and Batch values (AccountActivity)
+{
+    "query": "SELECT [AccountActivity.ACCOUNTACTIVITY_ID], [AccountActivity.ACCOUNTKEY], [AccountActivity.ACCOUNTSERVICEKEY], [AccountActivity.ADDBY], [AccountActivity.ADDDTTM], [AccountActivity.ADJUSTMENTKEY], [AccountActivity.APPFEEKEY], [AccountActivity.BILLKEY], [AccountActivity.DEPOSITADJUSTMENTKEY], [AccountActivity.DEPOSITCHARGEKEY], [AccountActivity.LINEITEMKEY], [AccountActivity.LINEITEMSETUPKEY], [AccountActivity.MODBY], [AccountActivity.MODDTTM], [AccountActivity.ONEOFFCHARGEKEY], [AccountActivity.PAYMENTKEY], [AccountActivity.PENALTYKEY], [AccountActivity.REFUNDKEY] FROM [ALL] WHERE [AccountActivity.BATCH ID] = 1 AND [AccountActivity.LOAD] = 8"
+}
+
+/* AcctTran */
+
+-- Getting Max Load (AcctTran)
+{
+    "query": "SELECT MAX([AcctTran.LOAD]) FROM [ALL]"
+}
+-- Getting Max Batch (AcctTran)
+{
+    "query": "SELECT MAX([AcctTran.BATCH ID]) FROM [ALL] WHERE [AcctTran.LOAD] = VARIABLE"
+}
+
+-- Getting Records with Max Load and Batch values (AcctTran)
+{
+    "query": "SELECT [AcctTran.ACCOUNTKEY], [AcctTran.ADDBY], [AcctTran.ADDDTTM], [AcctTran.ADJUSTMENTKEY], [AcctTran.APPFEEKEY], [AcctTran.COMMENTSKEY],  [AcctTran.DEPOSITTRANSACTIONKEY], [AcctTran.INTERNALFLAG], [AcctTran.LINEITEMKEY], [AcctTran.MODBY], [AcctTran.MODDTTM], [AcctTran.NEEDSJOURNAL], [AcctTran.ONEOFFCHARGEKEY], [AcctTran.PAYKEY], [AcctTran.PENALTYKEY], [AcctTran.REFTRANNO], [AcctTran.REFUNDKEY], [AcctTran.SOURCEKEY], [AcctTran.SOURCETYPE], [AcctTran.TRANAMT], [AcctTran.TRANBY], [AcctTran.TRANDATE], [AcctTran.TRANNO], [AcctTran.BATCH ID], [AcctTran.LOAD], [AcctTran.TRANSACTIONDESIGNATOR], [AcctTran.TRANSACTIONTYPE] FROM [ALL] WHERE [AcctTran.BATCH ID] =1 AND [AcctTran.LOAD] = 12"
+}
+
+/* AssValH */
+
+-- Getting Max Load (AssValH)
+{
+    "query": "SELECT MAX([AssValH.LOAD]) FROM [ALL]"
+}
+-- Getting Max Batch (AssValH)
+{
+    "query": "SELECT MAX([AssValH.BATCH ID]) FROM [ALL] WHERE [AssValH.LOAD] = 12"
+}
+
+-- Getting Records with Max Load and Batch values (AssValH)
+{
+    "query": "SELECT [AssValH.ACCDEPREC], [AssValH.ACQDATE], [AssValH.ACQTYPE], [AssValH.ADDBY], [AssValH.ADDDTTM], [AssValH.ASSVALHISTKEY], [AssValH.ASSVALKEY], [AssValH.ASSVALRUNKEY], [AssValH.BACKDATEADJFLAG], [AssValH.BGTKEY], [AssValH.BGTKEY2], [AssValH.BGTKEY3], [AssValH.BGTNO], [AssValH.BOOKID], [AssValH.CAPTLDATE], [AssValH.CAPTLEXP], [AssValH.CATEGORY], [AssValH.CLASS], [AssValH.COMMENTS], [AssValH.COMPKEY], [AssValH.COMPTYPE], [AssValH.DEPRECRATE], [AssValH.DEPRECTYPE], [AssValH.DEPRECYTD], [AssValH.DEPRESIDLF], [AssValH.DISJOURNALDATE], [AssValH.DISPBGTKEY], [AssValH.DISPBGTNO], [AssValH.DISPDATE], [AssValH.DISPDESC], [AssValH.DISPVAL], [AssValH.EXPLIFE], [AssValH.INITCOST], [AssValH.INSUREVAL], [AssValH.LINEARFROMFT], [AssValH.LINEARFROMM], [AssValH.LINEARTOFT], [AssValH.LINEARTOM], [AssValH.MAINTEXP], [AssValH.MODBY], [AssValH.MODDTTM], [AssValH.PROFITLOSS], [AssValH.RECLNO], [AssValH.RESIDLIFE], [AssValH.RESIDVAL], [AssValH.REVALAMT], [AssValH.ROLLEDBACKFLAG], [AssValH.RWATTRTYPE], [AssValH.TAXVAL], [AssValH.TOBESOLDDATE], [AssValH.TOBESOLDDESC], [AssValH.VALDATE], [AssValH.WRITEDNVAL], [AssValH.BATCH ID], [AssValH.LOAD], [AssValH.RWATTRKEY] FROM [ALL] WHERE [AssValH.BATCH ID] = 1 AND [AssValH.LOAD] = 12"
+}
+
+
+

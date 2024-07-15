@@ -1,0 +1,13 @@
+-- Getting Max Load
+{
+    "query": "SELECT MAX([AccountActivity.LOAD]) FROM [ALL]"
+}
+-- Getting Max Batch
+{
+    "query": "SELECT MAX([AccountActivity.BATCH ID]) FROM [ALL] WHERE [AccountActivity.LOAD] = VARIABLE"
+}
+
+-- Getting Records with Max Load and Batch values
+{
+    "query": "SELECT [AccountActivity.ACCOUNTACTIVITY_ID],[AccountActivity.ACCOUNTKEY],[AccountActivity.ACCOUNTSERVICEKEY], [AccountActivity.ADDBY], [AccountActivity.ADDDTTM], [AccountActivity.ADJUSTMENTKEY], [AccountActivity.APPFEEKEY], [AccountActivity.BILLKEY],  [AccountActivity.DEPOSITADJUSTMENTKEY], [AccountActivity.DEPOSITCHARGEKEY], [AccountActivity.LINEITEMKEY], [AccountActivity.LINEITEMSETUPKEY], [AccountActivity.MODBY], [AccountActivity.MODDTTM], [AccountActivity.ONEOFFCHARGEKEY], [AccountActivity.PAYMENTKEY] , [AccountActivity.PENALTYKEY], [AccountActivity.REFUNDKEY], FROM [ALL] WHERE [AccountActivity.BATCH ID] = 3226 AND [AccountActivity.LOAD] = 5"
+}
