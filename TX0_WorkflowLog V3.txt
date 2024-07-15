@@ -1,0 +1,40 @@
+/* The TX0 WorkflowLog script is an Initial Script that is run when data has been processed  
+   (And IX0 Workflow Log Script has been executed in the Watercare Big Tables Initial Workflow).
+   This script is part of the Big Tables Workflow */
+
+
+/* Variables */
+
+DIM [v_extract_from_utc_date_time] AS VARCHAR(24)
+DIM [v_extract_to_utc_date_time] AS VARCHAR(24) = FORMAT(NOWDATETIME,'yyyy-MM-dd\'T\'HH:mm:ss.000\'Z\'') 
+DIM [v_Start] AS VARCHAR(24) = FORMAT(NOWDATETIME,'yyyy-MM-dd\'T\'HH:mm:ss.000\'Z\'') 
+DIM [v_next_sequence_number] AS INTEGER
+DIM [v_maxdays] AS integer = integer(GetVariable('MaxExtractedDays'))
+
+[v_next_sequence_number] = [Level(WorkflowLog.WorkflowLog).Sequence Number] + 1
+[v_extract_from_utc_date_time] = [Level(WorkflowLog.WorkflowLog).Extract To UTC Date Time ISO 8601]
+
+
+/* Attributes */
+
+[Workflow Id] = [v_Start]+'_'+VARCHAR([v_next_sequence_number])
+[Run Time Duration HH:mm] = NULL
+[Extract From UTC Date Time] = DATETIME([v_extract_from_utc_date_time])
+[Extract From UTC Date Time ISO 8601] = [v_extract_from_utc_date_time]
+[Start Date Time] = DATETIME([v_Start])
+[Status] = 'In Progress'
+[End Date Time] = NULL
+
+IF datediff(day,DATETIME([v_extract_from_utc_date_time]),DATETIME([v_extract_to_utc_date_time])) > [v_maxdays] THEN
+    [v_extract_to_utc_date_time] = FORMAT(DATEADD(day,[v_maxdays],DATETIME([v_extract_from_utc_date_time])),'yyyy-MM-dd\'T\'HH:mm:ss.000\'Z\'')
+    [v_extract_to_utc_date_time] = FORMAT(DATEADD(Hour, 12, DATETIME([v_extract_to_utc_date_time])),'yyyy-MM-dd\'T\'HH:mm:ss.000\'Z\'')
+ELSE
+    [v_extract_to_utc_date_time] = FORMAT(DATEADD(Hour, 12, DATETIME([v_extract_to_utc_date_time])),'yyyy-MM-dd\'T\'HH:mm:ss.000\'Z\'')
+END IF
+
+
+[Extract To UTC Date Time] = DATETIME([v_extract_to_utc_date_time])
+[Extract To UTC Date Time ISO 8601] = [v_extract_to_utc_date_time]
+[Sequence Number] = [v_next_sequence_number]
+
+WriteRecord
